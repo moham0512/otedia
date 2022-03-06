@@ -174,7 +174,7 @@ label {
     position: relative;
     top: 60px;
     background: #65379B;
-    background-image: url('/images/home-banner.jpg');
+    background-image: url('images/home-banner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
