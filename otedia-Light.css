@@ -672,3 +672,14 @@ label {
     top: 48%;
     left: 49%;
 }
+
+#dark{
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+}
+
+.Dark-mode{
+    background-color: black !important;
+    color: white !important;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link href="otedia-proj.css" rel="stylesheet" type="text/css" />
+    <link href="otedia-Light.css" id="css" rel="stylesheet" type="text/css" />
     <link href="Grid-System.css" rel="stylesheet" type="text/css" />
     <link href="images/logootedia.png" rel="icon" type="text/icon" />
     <link href="/tasks/Preloader/Preloader.html" rel="preload" as="html" />
@@ -116,6 +116,20 @@
                     requestAnimationFrame(scrollToTop);
                 }
             }
+
+
+            const dark = document.getElementById('dark');
+            const css = document.getElementById('css');
+
+            dark.addEventListener('click' , function(){
+                if(dark.textContent == 'Dark'){
+                    css.setAttribute('href' , 'otedia-Dark.css');
+                    dark.textContent = 'Light';
+                }else{
+                    css.setAttribute('href' , 'otedia-Light.css');
+                    dark.textContent = 'Dark';
+                }
+            });
 
         }
 
@@ -367,6 +381,7 @@
     </div>
 
     <button id="scroll-top" type="button" >&#10148;</button>
+    <button id="dark" type="button">Dark</button>
     <div id="preload">
         <img src="images/logootedia.png" />
     </div>
