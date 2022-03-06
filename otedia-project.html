@@ -7,6 +7,7 @@
     <link href="otedia-proj.css" rel="stylesheet" type="text/css" />
     <link href="Grid-System.css" rel="stylesheet" type="text/css" />
     <link href="images/logootedia.png" rel="icon" type="text/icon" />
+    <link href="/tasks/Preloader/Preloader.html" rel="preload" as="html" />
     <title>otedia</title>
 
     <script src="jquery.js"></script>
@@ -35,6 +36,32 @@
 
     <script>
         function onLoad() {
+
+            const preload = document.getElementById('preload');
+            const preloadImg = document.querySelector('#preload img');
+            let radius = 0;
+
+            let rotator = setInterval(rotate , 100);
+
+            function rotate(){
+                if(radius == 360){
+                    radius = 0;
+                }
+                radius += 3;
+                preloadImg.style.transform = `rotate(${radius}deg)`;
+                requestAnimationFrame(rotate);
+            }
+
+            setTimeout(hidden , 500);
+
+            function hidden(){
+                preload.style.display = 'none';
+                clearInterval(rotator);
+            }
+
+
+            
+
             const menu = document.querySelector('#nav .menu');
             const menuButton = document.getElementById('menubtn');
 
@@ -64,9 +91,37 @@
             //         menu.classList.add('menu-close');
             //     }
             // });
+
+
+            const scroller = document.getElementById('scroll-top');;
+            document.addEventListener('scroll' , function(){
+                if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+                    scroller.style.display = 'block';
+                }else{
+                    scroller.style.display = 'none';
+                }
+            });
+
+            let pos;
+            scroller.addEventListener('click' , function(){
+                requestAnimationFrame(scrollToTop);
+                pos = document.documentElement.scrollTop;
+            });
+
+            function scrollToTop(){
+                pos -= 100;
+                document.documentElement.scrollTop = pos;
+                document.body.scrollTop = pos;
+                if(document.documentElement.scrollTop > 0){
+                    requestAnimationFrame(scrollToTop);
+                }
+            }
+
         }
 
-        document.addEventListener('DOMContentLoaded', onLoad);
+
+        document.addEventListener('DOMContentLoaded' , onLoad);
+        
     </script>
 
 </head>
@@ -134,118 +189,187 @@
     </header>
 
     <main id="main">
-        <div class="wrapper">
-            <div class="row group">
-                <section id="offline-course">
+        
+            <section id="offline-course">
+                <div class="wrapper">
+                    <div class="row group">
+                        <div class="col-xs-12">
+                            <h2><a href="#">دوره های آفلاین</a></h2>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <article class="post">
+                                <div class="image">
+                                    <img src="images/nodejs.png" />
+                                </div>
+                                <h3><a href="#">آموزش جامع Node.js</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">عباس مقدم</span>
+                                    <span class="view">۵۴</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <article class="post">
+                                <div class="image">
+                                    <img src="images/Regular-Expressions.png" />
+                                </div>
+                                <h3><a href="#">آموزش جامع عبارات منظم (Regular Expressions)</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">عباس مقدم</span>
+                                    <span class="view">۵۴</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <article class="post">
+                                <div class="image">
+                                    <img src="images/javascript-fundamental.jpg" />
+                                </div>
+                                <h3><a href="#">اصول برنامه نویسی با JavaScript</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">عباس مقدم</span>
+                                    <span class="view">۵۴</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <article class="post">
+                                <div class="image">
+                                    <img src="images/bootstrap.jpg" />
+                                </div>
+                                <h3><a href="#">آموزش فریمورک Bootstrap 4</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">عباس مقدم</span>
+                                    <span class="view">۵۴</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <article class="post">
+                                <div class="image">
+                                    <img src="images/wordpress.png" />
+                                </div>
+                                <h3><a href="#">فارسی سازی قالب ها و افزونه های وردپرس</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">عباس مقدم</span>
+                                    <span class="view">۵۴</span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <article class="post">
+                                <div class="image">
+                                    <img src="images/html.jpg" />
+                                </div>
+                                <h3><a href="#">آموزش طراحی صفحات وب با HTML5 و CSS3</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">عباس مقدم</span>
+                                    <span class="view">۵۴</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        <section id="online-course">
+            <div class="wrapper">
+                <div class="row group">
                     <div class="col-xs-12">
-                        <h2><a href="#">دوره های آفلاین</a></h2>
+                        <h2><a href="#">دوره های آنلاین</a></h2>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                         <article class="post">
                             <div class="image">
-                                <img src="images/nodejs.png" />
+                                <img src="images/english-400x225.jpeg" />
                             </div>
-                            <h3><a href="#">آموزش جامع Node.js</a></h3>
-                            <div class="inner-container1">
-                                <span class="price">رایگان</span>
-                                <span class="score">۵</span>
-                            </div>
-                            <hr/>
-                            <div class="inner-container2">
-                                <span class="owner">عباس مقدم</span>
-                                <span class="view">۵۴</span>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <article class="post">
-                            <div class="image">
-                                <img src="images/Regular-Expressions.png" />
-                            </div>
-                            <h3><a href="#">آموزش جامع عبارات منظم (Regular Expressions)</a></h3>
-                            <div class="inner-container1">
-                                <span class="price">رایگان</span>
-                                <span class="score">۵</span>
-                            </div>
-                            <hr/>
-                            <div class="inner-container2">
-                                <span class="owner">عباس مقدم</span>
-                                <span class="view">۵۴</span>
+                            <div class="description">
+                                <h3><a href="#">آموزش (تدریس) آنلاین زبان انگلیسی</a></h3>
+                                <div class="inner-container1">
+                                    <span class="price">توافق با مدرس</span>
+                                </div>
+                                <hr/>
+                                <div class="inner-container2">
+                                    <span class="owner">محسن رایگان</span>
+                                    <span class="score">۵</span>
+                                </div>
                             </div>
                         </article>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <article class="post">
-                            <div class="image">
-                                <img src="images/javascript-fundamental.jpg" />
-                            </div>
-                            <h3><a href="#">اصول برنامه نویسی با JavaScript</a></h3>
-                            <div class="inner-container1">
-                                <span class="price">رایگان</span>
-                                <span class="score">۵</span>
-                            </div>
-                            <hr/>
-                            <div class="inner-container2">
-                                <span class="owner">عباس مقدم</span>
-                                <span class="view">۵۴</span>
-                            </div>
-                        </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <div class="footer-cats">
+                        <h2 class="title">درباره OTedia.com</h2>
+                        <ul id="about">
+                            <li>ارائه دهنده دوره های آموزشی آفلاین (به صورت فیلم های آموزشی ضبط شده)</li>
+                            <li>برگزاری دوره های آموزشی آنلاین (به صورت زنده و تعاملی)</li>
+                            <li>ایجاد و برگزاری کلاس های آنلاین توسط کاربران</li>
+                        </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <article class="post">
-                            <div class="image">
-                                <img src="images/bootstrap.jpg" />
-                            </div>
-                            <h3><a href="#">آموزش فریمورک Bootstrap 4</a></h3>
-                            <div class="inner-container1">
-                                <span class="price">رایگان</span>
-                                <span class="score">۵</span>
-                            </div>
-                            <hr/>
-                            <div class="inner-container2">
-                                <span class="owner">عباس مقدم</span>
-                                <span class="view">۵۴</span>
-                            </div>
-                        </article>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="footer-cats">
+                        <h2 class="title">سایر بخش‌ها</h2>
+                        <ul id="info">
+                            <li><a href="#">تماس با ما</a></li>
+                            <li><a href="#">درباره ما</a></li>
+                            <li><a href="#">سوالات متداول</a></li>
+                            <li><a href="#">راهنمای ویدئویی</a></li>
+                            <li><a href="#">حمایت از ما</a></li>
+                        </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <article class="post">
-                            <div class="image">
-                                <img src="images/wordpress.png" />
-                            </div>
-                            <h3><a href="#">فارسی سازی قالب ها و افزونه های وردپرس</a></h3>
-                            <div class="inner-container1">
-                                <span class="price">رایگان</span>
-                                <span class="score">۵</span>
-                            </div>
-                            <hr/>
-                            <div class="inner-container2">
-                                <span class="owner">عباس مقدم</span>
-                                <span class="view">۵۴</span>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <article class="post">
-                            <div class="image">
-                                <img src="images/html.jpg" />
-                            </div>
-                            <h3><a href="#">آموزش طراحی صفحات وب با HTML5 و CSS3</a></h3>
-                            <div class="inner-container1">
-                                <span class="price">رایگان</span>
-                                <span class="score">۵</span>
-                            </div>
-                            <hr/>
-                            <div class="inner-container2">
-                                <span class="owner">عباس مقدم</span>
-                                <span class="view">۵۴</span>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+                </div>
             </div>
         </div>
-    </main>
+    </footer>
+
+    <div id="copyright">
+        <p>
+            کلیه حقوق مادی و معنوی این سایت متعلق به OTedia.com است
+        </p>
+    </div>
+
+    <button id="scroll-top" type="button" >&#10148;</button>
+    <div id="preload">
+        <img src="images/logootedia.png" />
+    </div>
 </body>
 
 </html>
