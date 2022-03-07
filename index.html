@@ -122,12 +122,15 @@
             const css = document.getElementById('css');
 
             dark.addEventListener('click' , function(){
-                if(dark.textContent == 'Dark'){
+                console.log('check');
+                if(dark.innerHTML == '☾'){
                     css.setAttribute('href' , 'otedia-Dark.css');
-                    dark.textContent = 'Light';
+                    dark.innerHTML = '&#9728;';
+                    console.log('check1');
                 }else{
                     css.setAttribute('href' , 'otedia-Light.css');
-                    dark.textContent = 'Dark';
+                    dark.innerHTML = '&#9790;';
+                    console.log('check2');
                 }
             });
 
@@ -381,7 +384,7 @@
     </div>
 
     <button id="scroll-top" type="button" >&#10148;</button>
-    <button id="dark" type="button">Dark</button>
+    <button id="dark" type="button">&#9790;</button>
     <div id="preload">
         <img src="images/logootedia.png" />
     </div>

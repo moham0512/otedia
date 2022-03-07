@@ -37,7 +37,8 @@ body {
     direction: rtl;
     font-family: iransans;
     font-size: 16px;
-    background-color: #edf0f2;    
+    background-color: #212325;
+    color: #e8e6e3;
 }
 
 a {
@@ -56,7 +57,7 @@ label {
 #nav {
     width: 100%;
     height: 60px;
-    background-color: black;
+    background-color: #181a1b;
     position: fixed;
     box-shadow: 0 0 2px #999;
     z-index: 2;
@@ -77,11 +78,11 @@ label {
     display: inline-block;
     font-size: 13px;
     margin: 18px 12px;
-    color: #007bff;
+    color: rgb(51, 162, 255);
 }
 
 #nav .login:hover {
-    color: #0056b3;
+    color: rgb(107, 188, 255);
 }
 
 #nav .flex-nav {
@@ -111,7 +112,7 @@ label {
 
 #menubtn:hover,
 #searchbtn:hover {
-    color: #555;
+    color: #bbb;
 }
 
 #nav .menu {
@@ -119,12 +120,12 @@ label {
     top: 60px;
     bottom: 0;
     width: 280px;
-    right: -280px;
+    right: -281px;
     transition: 0.4s;
     line-height: 350%;
-    background-color: white;
-    box-shadow: 0 1px 0 1px #eee;
-    border-top: 1px solid #eee;
+    background-color: rgb(24, 26, 27);
+    box-shadow: 0 1px 0 1px #222;
+    border-top: 1px solid #444;
     font-size: 14px;
     overflow: auto;
     z-index: 2;
@@ -139,6 +140,7 @@ label {
 }
 
 #nav .plus {
+    color: #f9f9f9;
     float: left;
     font-size: 22px;
     padding: 0 20px;
@@ -146,16 +148,17 @@ label {
 }
 
 #nav .menu>li {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #35393b;
 }
 
 #nav .submenu {
-    background-color: #f8f8f4;
+    background-color: #262618;
     display: none;
     overflow: hidden;
 }
 
 #nav .menu a {
+    color: #f9f9f9;
     display: inline-block;
     padding-right: 15px;
 }
@@ -163,7 +166,7 @@ label {
 #nav .submenu a {
     display: block;
     padding-right: 40px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #35393b;
 }
 
 #header{
@@ -190,6 +193,7 @@ label {
 
 #home-banner h1{
     text-align: center;
+    color: #e8e6e3;
     padding-bottom: 40px;
     font-size: 22px;
 }
@@ -198,6 +202,7 @@ label {
     padding-right: 20px;
 }
 #home-banner .titles li{
+    color: #e8e6e3;
     line-height: 320%;
     font-size: 13px;
 }
@@ -219,18 +224,18 @@ label {
 }
 
 #offline-course h2 , #online-course h2{
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #3a3e41;
     font-size: 26px;
     padding-bottom: 15px;
 }
 
 #main h2 a{
-    color: #444;
+    color: #bdb7af;
     transition: 0.2s;
 }
 
 #main h2 a:hover{
-    color: black;
+    color: white;
 }
 
 #main .post{
@@ -238,7 +243,7 @@ label {
     margin: 10px auto;
     max-width: 360px;
     overflow: hidden;
-    background-color: white;
+    background-color: #181a1b;
     border-radius: 5px;
 
 }
@@ -269,7 +274,7 @@ label {
 
 #main h3 a{
     display: inline-block;
-    color: black;
+    color: #e8e6e3;
     padding: 5px;
     transition: 0.3s;
     font-size: 15px;
@@ -293,6 +298,7 @@ label {
 }
 
 #main .score{
+    color: #e8e6e3;
     font-size: 15px;
 }
 
@@ -308,7 +314,7 @@ label {
     width: 75%;
     margin: 5px auto;
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #3a3e41;
 }
 
 #main .inner-container2{
@@ -318,7 +324,7 @@ label {
     margin-bottom: 15px;
 }
 
-#mian .owner{
+#main .owner{
     font-size: 12px;
 }
 
@@ -326,7 +332,7 @@ label {
     content: '\f007';
     font-family: FontAwesome;
     font-size: 18px;
-    color: #555;
+    color: #999;
     padding-left: 8px;
     vertical-align: -2px;
 }
@@ -415,7 +421,18 @@ label {
     color: #f7f7f7;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
 
+::-webkit-scrollbar-thumb{
+    background-color: #777;
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #999;
+}
 
 @media screen and (min-width: 720px) {
     #header{
@@ -463,6 +480,7 @@ label {
         height: 100%;
     }
     #nav p {
+        color: #ddd;
         display: inline-block;
         line-height: 150%;
         margin: 26px 40px 0 0;
@@ -472,12 +490,17 @@ label {
     }
     #nav .login {
         margin-top: 39px;
+        color: #ddd;
+    }
+
+    #nav .login:hover{
         color: white;
     }
+
     #searchbtn {
         margin-left: 40px;
         margin-top: 38px;
-        color: #ddd;
+        color: #ccc;
     }
     #searchbtn:hover {
         color: #eee;
@@ -501,7 +524,7 @@ label {
         border: none;
     }
     #nav .menu>li>a {
-        color: white;
+        color: #ddd;
         padding: 25px 15px;
         transition: 0.3s;
         height: 50px;
@@ -511,7 +534,7 @@ label {
     }
     #nav .submenu {
         border-top: 2px solid #fcb900;
-        background-color: white;
+        background-color: rgb(24, 26, 27);
         display: none !important;
         box-sizing: border-box;
         position: absolute;
@@ -534,7 +557,7 @@ label {
         }
     }
     #nav .submenu a {
-        color: #777;
+        color: #aaa;
         font-size: 12px;
         border: none;
         padding-right: 20px;
@@ -552,7 +575,7 @@ label {
         transition: 0.3s;
     }
     #nav .submenu a:hover {
-        background-color: #f7f7f7;
+        background-color: #333;
         padding-right: 40px;
     }
     #nav .submenu a:hover .dot {
@@ -644,15 +667,17 @@ label {
     right: 20px;
     bottom: 20px;
     z-index: 99;
-    background-color: #f5f5f5;
+    background-color: #1e2021;
     border: none;
-    box-shadow: -1px 0 5px #bbb;
-    padding: 10px 15px;
-    border-radius: 30px;
+    box-shadow: -1px 0 5px #666;
+    width: 45px;
+    height: 45px;
+    border-radius: 40px;
     transform: rotate(-90deg);
     color: #007bff;
     text-align: center;
     cursor: pointer;
+    font-size: 20px;
 }
 
 #preload{
@@ -677,9 +702,12 @@ label {
     position: fixed;
     left: 20px;
     bottom: 20px;
-}
-
-.Dark-mode{
-    background-color: black !important;
-    color: white !important;
+    background-color: #1e2021;
+    color: #aaa;
+    border: none;
+    box-shadow: 0 1px 5px #666;
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
 }
