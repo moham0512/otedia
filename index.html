@@ -13,36 +13,26 @@
     <script src="jquery.js"></script>
     <script>
         $(function() {
-            // $('#menubtn').click(function() {
-            //     if ($("#nav .menu").css('right') == '-281px') {
-            //         $("#nav .menu").css('right', '0');
-            //     } else {
-            //         $("#nav .menu").css('right', '-281px');
-            //     }
-            // });
-
             $('#nav .plus').click(function() {
                 $(this).siblings('.submenu').slideToggle();
-                // $(this).siblings('.submenu').css('visibility', 'visible');
             });
-
-            // $(window).resize(function() {
-            //     if ($('#nav .menu').css('width') != 280) {
-            //         $('#nav .submenu').slideUp();
-            //     }
-            // });
         });
     </script>
 
     <script>
-        function onLoad() {
 
-            const preload = document.getElementById('preload');
-            const preloadImg = document.querySelector('#preload img');
+        let preload;
+        let preloadImg;
+
+        function onContentLoaded() {
+
+            console.log('DOMContentLoded');
+
+            preload = document.getElementById('preload');
+            preloadImg = document.querySelector('#preload img');
             let radius = 0;
 
-            let rotator = setInterval(rotate , 100);
-
+            requestAnimationFrame(rotate);
             function rotate(){
                 if(radius == 360){
                     radius = 0;
@@ -52,15 +42,17 @@
                 requestAnimationFrame(rotate);
             }
 
-            setTimeout(hidden , 500);
-
-            function hidden(){
-                preload.style.display = 'none';
-                clearInterval(rotator);
-            }
+        }
 
 
-            
+        document.addEventListener('DOMContentLoaded' , onContentLoaded);
+        
+
+        function onLoad(){
+
+            console.log('Load');
+            preload = document.getElementById('preload');
+            preload.style.display = 'none';
 
             const menu = document.querySelector('#nav .menu');
             const menuButton = document.getElementById('menubtn');
@@ -68,29 +60,6 @@
             menuButton.addEventListener('click', function() {
                 menu.classList.toggle('menu-open');
             });
-
-            // const plusBtn = document.querySelectorAll('#nav .plus');
-
-            // for (let x = 0; x < 2; x++) {
-            //     console.log(plusBtn[x].parentElement.querySelector('.submenu').nodeName)
-            //     plusBtn[x].addEventListener('click', function() {
-            //         plusBtn[x].parentElement.querySelector('.submenu').classList.toggle('submenu-open');
-            //     });
-            // }
-
-            // menuButton.addEventListener('click', function() {
-            //     if (menu.style.right == 0) {
-            //         menu.style.right = '-281px';
-            //     } else {
-            //         menu.style.right = '0';
-            //     }
-            // });
-
-            // window.addEventListener('resize', function() {
-            //     if (window.innerWidth > 960) {
-            //         menu.classList.add('menu-close');
-            //     }
-            // });
 
 
             const scroller = document.getElementById('scroll-top');;
@@ -122,23 +91,19 @@
             const css = document.getElementById('css');
 
             dark.addEventListener('click' , function(){
-                console.log('check');
                 if(dark.innerHTML == '☾'){
                     css.setAttribute('href' , 'otedia-Dark.css');
                     dark.innerHTML = '&#9728;';
-                    console.log('check1');
                 }else{
                     css.setAttribute('href' , 'otedia-Light.css');
                     dark.innerHTML = '&#9790;';
-                    console.log('check2');
                 }
             });
-
         }
 
+        window.addEventListener('load' , onLoad);
 
-        document.addEventListener('DOMContentLoaded' , onLoad);
-        
+
     </script>
 
 </head>
